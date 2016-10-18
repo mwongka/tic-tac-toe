@@ -1,7 +1,7 @@
 //need game class
 // player will be 'x' or 'o'
 var Board = function(player1, player2){
-  this.board = [[0,'X','X'],
+  this.board = [[0,0,0],
                 [0,0,0],
                 [0,0,0]];
   this.player1 = player1;
@@ -57,7 +57,14 @@ Board.prototype.checkHorizontal = function(player, row, col){
 }
 
 Board.prototype.checkVertical = function(player, row, col){
-  
+  var winnerFound = true;
+  this.board.forEach((r, index) => {
+    if(this.board[index][col] !== player){
+      winnerFound = false;
+      return winnerFound;
+    }
+  })
+  return winnerFound;
 }
 
 Board.prototype.checkDiagonal = function(player, row, col){
@@ -66,4 +73,4 @@ Board.prototype.checkDiagonal = function(player, row, col){
 
 var game = new Board('X', 'O');
 
-console.log(game.playerMove(1,0));
+console.log(game.playerMove(0,0));
