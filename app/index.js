@@ -68,8 +68,12 @@ Board.prototype.checkVertical = function(player, row, col){
 }
 
 Board.prototype.checkDiagonal = function(player, row, col){
-  
+  var winnerFound = true;
+  //diagonal check goes here. out of time
+  return winnerFound;
 }
+
+
 
 var game = new Board('X', 'O');
 
